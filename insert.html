@@ -1,0 +1,44 @@
+<?php
+
+	$conn=mysqli_connect('localhost','root','','online');
+	if(isset($_POST['submit'])){
+
+		
+		
+		$sql='insert into data(Reg,E_mail) values('.$_POST["a"].','.$_POST["b"].')';
+
+		if($conn->query($sql)===TRUE)
+			{
+				echo "<script>alert('data inserted')</script>";
+			}
+			else
+			{
+				echo '<script>alert("'.$conn->error.'")</script>';
+			}
+
+	}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Register</h1>
+		<form action="#" method="post">
+			<div class="textbox">
+			<input type="text" placeholder="*Reg. No." name="a" >
+		</div>
+		
+		<div class="textbox">
+			<input type="text" placeholder="*E-mail" name="b" >
+		</div>
+		<input type="submit" name="submit">
+
+
+		</form>
+
+
+</body>
+</html>
